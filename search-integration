@@ -1,0 +1,28 @@
+  Go to Integrations
+    Choose Add custom integration, name it ghostHunter and choose Create. Copy the generated Content API Key.
+    Go to Code injection
+    Add this to Blog Header:
+
+
+<script>
+  var ghosthunter_key = '8378de04622aac68ea53dce593';
+  //optional: set your custom ghost_root url, default is `"/ghost/api/v2"`
+  var ghost_root_url = "/ghost/api/v2"
+</script>
+
+
+In you theme directory :
+
+cd assets
+  git clone https://github.com/jamalneufeld/ghostHunter.git --recursive
+  
+  
+  vi default.hbs
+  <script type="text/javascript" src="{{asset "ghostHunter/dist/jquery.ghosthunter.js"}}"></script>
+  
+  <script>
+      $("#search-field").ghostHunter({
+        results   : "#results",
+        onKeyUp: true
+       });
+    </script>
